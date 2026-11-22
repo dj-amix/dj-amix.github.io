@@ -813,6 +813,7 @@
             <div class="sum-row"><span>نورپردازی VIP</span><span class="sv" id="wedSumLightVal">افزوده نشده</span></div>
             <div class="sum-row"><span id="wedSumTvLabel">تی‌وی وال</span><span class="sv" id="wedSumTvVal">افزوده نشده</span></div>
             <div class="sum-row"><span id="wedSumInstLabel">نوازنده زنده</span><span class="sv" id="wedSumInstVal">بدون نوازنده</span></div>
+            <div class="sum-row"><span>ایاب و ذهاب</span><span class="sv" id="wedSumTravelVal">—</span></div>
             <div class="sum-row total"><span class="sl">قیمت نهایی پکیج عروسی</span><span class="sv"><span id="wedTotal">۴۵٬۰۰۰٬۰۰۰</span> <small>تومان</small></span></div>
           </div>
 
@@ -892,6 +893,7 @@
               <div class="sum-row"><span id="sumSoundLabel">سیستم صوت — اکونومی</span><span class="sv" id="sumSoundVal">۵٬۰۰۰٬۰۰۰ تومان</span></div>
               <div class="sum-row"><span id="sumLightLabel">نورپردازی — بدون نورپردازی</span><span class="sv" id="sumLightVal">۰ تومان</span></div>
               <div class="sum-row"><span id="sumInstLabel">نوازنده زنده</span><span class="sv" id="sumInstVal">بدون نوازنده</span></div>
+              <div class="sum-row"><span id="sumTravelLabel">ایاب و ذهاب</span><span class="sv" id="sumTravelVal">—</span></div>
               <div class="sum-row total"><span class="sl">قیمت نهایی پکیج تولد</span><span class="sv"><span id="bdayTotal">۳۰٬۰۰۰٬۰۰۰</span> <small>تومان</small></span></div>
             </div>
 
@@ -965,6 +967,62 @@
                 <label for="fVenue">تالار / محل مراسم</label>
                 <input id="fVenue" name="venue" type="text" placeholder="نام تالار یا شهر و محل مراسم" />
               </div>
+              <div class="field">
+                <label for="fCity">شهر مراسم</label>
+                <select id="fCity" name="city">
+                  <option value="">انتخاب کنید</option>
+                  <option value="احمدسرگوراب">احمدسرگوراب</option>
+                  <option value="اسالم">اسالم</option>
+                  <option value="آستارا">آستارا</option>
+                  <option value="آستانه اشرفیه">آستانه اشرفیه</option>
+                  <option value="املش">املش</option>
+                  <option value="انزلی">انزلی</option>
+                  <option value="اطاقور">اطاقور</option>
+                  <option value="بره‌سر">بره‌سر</option>
+                  <option value="پره‌سر">پره‌سر</option>
+                  <option value="تالش">تالش</option>
+                  <option value="توتکابن">توتکابن</option>
+                  <option value="جیرنده">جیرنده</option>
+                  <option value="چابکسر">چابکسر</option>
+                  <option value="چاف و چمخاله">چاف و چمخاله</option>
+                  <option value="چوبر">چوبر</option>
+                  <option value="حویق">حویق</option>
+                  <option value="خمام">خمام</option>
+                  <option value="خشکبیجار">خشکبیجار</option>
+                  <option value="دیلمان">دیلمان</option>
+                  <option value="رانکوه">رانکوه</option>
+                  <option value="رحیم‌آباد">رحیم‌آباد</option>
+                  <option value="رستم‌آباد">رستم‌آباد</option>
+                  <option value="رشت">رشت</option>
+                  <option value="رضوانشهر">رضوانشهر</option>
+                  <option value="رودبار">رودبار</option>
+                  <option value="رودسر">رودسر</option>
+                  <option value="سنگر">سنگر</option>
+                  <option value="سیاهکل">سیاهکل</option>
+                  <option value="شاندرمن">شاندرمن</option>
+                  <option value="شفت">شفت</option>
+                  <option value="صومعه‌سرا">صومعه‌سرا</option>
+                  <option value="فومن">فومن</option>
+                  <option value="کپورچال">کپورچال</option>
+                  <option value="کلاچای">کلاچای</option>
+                  <option value="کوچصفهان">کوچصفهان</option>
+                  <option value="کومله">کومله</option>
+                  <option value="کیاشهر">کیاشهر</option>
+                  <option value="گوراب زرمیخ">گوراب زرمیخ</option>
+                  <option value="لاهیجان">لاهیجان</option>
+                  <option value="لشت نشا">لشت نشا</option>
+                  <option value="لنگرود">لنگرود</option>
+                  <option value="لولمان">لولمان</option>
+                  <option value="لوشان">لوشان</option>
+                  <option value="لیسار">لیسار</option>
+                  <option value="ماسال">ماسال</option>
+                  <option value="ماسوله">ماسوله</option>
+                  <option value="مرجقل">مرجقل</option>
+                  <option value="منجیل">منجیل</option>
+                  <option value="واجارگاه">واجارگاه</option>
+                  <option value="سایر شهرها">سایر شهرها</option>
+                </select>
+              </div>
             </div>
 
             <div class="field">
@@ -1028,6 +1086,30 @@
     </footer>
 
     <script>
+      /* Travel fee by city (distance from Lahijan; kilometers are never shown to the customer).
+         Tiers (Amir 2026-11-23): nearby 0, 30–60 km 4M, 60–100 km 7M, 100+ km inside the province 10M.
+         Defined at top level so both script blocks below can use it. */
+      var CITY_FEES = {
+        "لاهیجان": 0, "لنگرود": 0, "آستانه اشرفیه": 0, "رودسر": 0, "کومله": 0,
+        "چاف و چمخاله": 0, "لشت نشا": 0, "اطاقور": 0, "رانکوه": 0, "واجارگاه": 0,
+        "کیاشهر": 0,
+        "سیاهکل": 4000000, "رشت": 4000000, "املش": 4000000, "چابکسر": 4000000,
+        "خشکبیجار": 4000000, "خمام": 4000000, "دیلمان": 4000000, "رحیم‌آباد": 4000000,
+        "سنگر": 4000000, "کلاچای": 4000000, "کوچصفهان": 4000000,
+        "انزلی": 7000000, "فومن": 7000000, "صومعه‌سرا": 7000000, "احمدسرگوراب": 7000000,
+        "بره‌سر": 7000000, "توتکابن": 7000000, "جیرنده": 7000000, "رستم‌آباد": 7000000,
+        "رضوانشهر": 7000000, "رودبار": 7000000, "شاندرمن": 7000000, "شفت": 7000000,
+        "کپورچال": 7000000, "گوراب زرمیخ": 7000000, "لولمان": 7000000, "لوشان": 7000000,
+        "ماسال": 7000000, "ماسوله": 7000000, "مرجقل": 7000000, "منجیل": 7000000,
+        "تالش": 10000000, "آستارا": 10000000, "اسالم": 10000000, "پره‌سر": 10000000,
+        "چوبر": 10000000, "حویق": 10000000, "لیسار": 10000000,
+        "سایر شهرها": 0
+      };
+      var cityEl = document.getElementById("fCity");
+      function travelCity() { return cityEl ? cityEl.value : ""; }
+      function travelFee() { var c = travelCity(); return c ? (CITY_FEES[c] || 0) : 0; }
+      function travelIsOther() { return travelCity() === "سایر شهرها"; }
+
       (function () {
         var FA_DIGITS = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
         function faNum(n) {
@@ -1072,6 +1154,7 @@
           else if (typeEl.value) lines.push("نوع مراسم: " + typeEl.value);
           if (selectedDate) lines.push("تاریخ مراسم: " + formatJalali(selectedDate));
           if (venueEl.value.trim()) lines.push("تالار/محل: " + venueEl.value.trim());
+          if (travelCity()) lines.push("شهر مراسم: " + travelCity());
           var selFn = isWeddingPanel ? window.getWeddingSelection : window.getBirthdaySelection;
           if (typeof selFn === "function") {
             lines.push("--------------------------");
@@ -1289,11 +1372,12 @@
         var sumLightVal = document.getElementById("sumLightVal");
         var sumInstLabel = document.getElementById("sumInstLabel");
         var sumInstVal = document.getElementById("sumInstVal");
+        var sumTravelVal = document.getElementById("sumTravelVal");
         var totalEl = document.getElementById("bdayTotal");
         var instCount = document.getElementById("bdayInstCount");
 
         function total() {
-          return BASE + state.sound.price + state.light.price + state.musicians.length * MUSICIAN_PRICE;
+          return BASE + state.sound.price + state.light.price + state.musicians.length * MUSICIAN_PRICE + travelFee();
         }
 
         function refreshBday() {
@@ -1310,6 +1394,9 @@
             sumInstVal.textContent = "بدون نوازنده";
             instCount.textContent = "";
           }
+          if (travelIsOther()) sumTravelVal.textContent = "با هماهنگی";
+          else if (travelCity()) sumTravelVal.textContent = fmt(travelFee()) + " تومان";
+          else sumTravelVal.textContent = "—";
           totalEl.textContent = fmt(total());
         }
 
@@ -1350,6 +1437,7 @@
           } else {
             lines.push("نوازنده زنده: ندارد");
           }
+          if (travelCity()) lines.push("ایاب و ذهاب (" + travelCity() + "): " + (travelIsOther() ? "با هماهنگی" : fmt(travelFee()) + " تومان"));
           lines.push("قیمت نهایی پکیج: " + fmt(total()) + " تومان");
           return lines;
         };
@@ -1369,6 +1457,7 @@
         var wedSumTvVal = document.getElementById("wedSumTvVal");
         var wedSumInstLabel = document.getElementById("wedSumInstLabel");
         var wedSumInstVal = document.getElementById("wedSumInstVal");
+        var wedSumTravelVal = document.getElementById("wedSumTravelVal");
         var wedInstCount = document.getElementById("wedInstCount");
         var wedInstHint = document.getElementById("wedInstHint");
         var wedChips = Array.prototype.slice.call(document.querySelectorAll("#wedInstChips .chip"));
@@ -1382,7 +1471,7 @@
         var wedTvPlus = document.getElementById("wedTvPlus");
 
         function wedTvPrice() { return wed.tv ? wed.meters * WED_TV_PER_METER : 0; }
-        function wedTotal() { return wed.price + (wed.light ? WED_LIGHT_PRICE : 0) + wedTvPrice(); }
+        function wedTotal() { return wed.price + (wed.light ? WED_LIGHT_PRICE : 0) + wedTvPrice() + travelFee(); }
 
         function refreshWed() {
           wedSumPkgLabel.textContent = "پکیج " + wed.label;
@@ -1402,6 +1491,9 @@
             wedSumInstLabel.textContent = "نوازنده زنده";
             wedSumInstVal.textContent = wed.max === 0 ? "در این پکیج نیست" : "بدون نوازنده";
           }
+          if (travelIsOther()) wedSumTravelVal.textContent = "با هماهنگی";
+          else if (travelCity()) wedSumTravelVal.textContent = fmt(travelFee()) + " تومان";
+          else wedSumTravelVal.textContent = "—";
           if (wed.max === 0) {
             wedInstCount.textContent = "این پکیج نوازنده زنده نداره";
             wedInstHint.textContent = "پکیج استارتر نوازنده زنده نداره؛ برای انتخاب نوازنده، یکی از پکیج‌های پلاس به بالا رو انتخاب کنید. پرکاشن به‌صورت ثابت جزو همه پکیج‌هاست.";
@@ -1468,9 +1560,12 @@
           lines.push("تی‌وی وال: " + (wed.tv ? faNum(wed.meters) + " متر — " + fmt(wedTvPrice()) + " تومان" : "ندارد"));
           lines.push("نوازنده زنده: " + (wed.musicians.length ? wed.musicians.join("، ") + " (شامل پکیج)" : "ندارد"));
           lines.push("پرکاشن: ثابت، جزو پکیج");
+          if (travelCity()) lines.push("ایاب و ذهاب (" + travelCity() + "): " + (travelIsOther() ? "با هماهنگی" : fmt(travelFee()) + " تومان"));
           lines.push("قیمت نهایی پکیج: " + fmt(wedTotal()) + " تومان");
           return lines;
         };
+
+        if (cityEl) cityEl.addEventListener("change", function () { refreshBday(); refreshWed(); });
 
         refreshWed();
         refreshBday();
