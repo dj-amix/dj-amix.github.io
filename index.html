@@ -731,31 +731,31 @@
         <div class="wed-box">
           <div class="wed-box-head">
             <h3>انتخاب پکیج، افزونه و نوازنده</h3>
-            <p>پکیج‌تون رو انتخاب کنید و هر افزونه و نوازنده‌ای که خواستید بهش اضافه کنید؛ قیمت نهایی همون لحظه به‌روز می‌شه.</p>
+            <p>پکیج‌تون رو انتخاب کنید، افزونه‌های دلخواه رو اضافه کنید و نوازنده‌های پکیج‌تون رو انتخاب کنید؛ قیمت نهایی همون لحظه به‌روز می‌شه.</p>
           </div>
 
           <div class="bday-group">
             <span class="glabel" id="wedPkgLabel">۱ — انتخاب پکیج عروسی</span>
             <div class="wed-pkg-grid" role="group" aria-labelledby="wedPkgLabel">
-              <button type="button" class="opt-card" data-wed-pkg data-key="starter" data-label="STARTER (استارتر)" data-price="45000000" aria-pressed="true">
+              <button type="button" class="opt-card" data-wed-pkg data-key="starter" data-label="STARTER (استارتر)" data-price="45000000" data-max="0" aria-pressed="true">
                 <span class="opt-name">STARTER (استارتر)</span>
-                <span class="opt-price">۴۵٬۰۰۰٬۰۰۰ تومان</span>
+                <span class="opt-price">۴۵٬۰۰۰٬۰۰۰ تومان · بدون نوازنده زنده</span>
               </button>
-              <button type="button" class="opt-card" data-wed-pkg data-key="plus" data-label="PLUS (پلاس)" data-price="55000000" aria-pressed="false">
+              <button type="button" class="opt-card" data-wed-pkg data-key="plus" data-label="PLUS (پلاس)" data-price="55000000" data-max="1" aria-pressed="false">
                 <span class="opt-name">PLUS (پلاس)</span>
-                <span class="opt-price">۵۵٬۰۰۰٬۰۰۰ تومان</span>
+                <span class="opt-price">۵۵٬۰۰۰٬۰۰۰ تومان · ۱ نوازنده زنده</span>
               </button>
-              <button type="button" class="opt-card" data-wed-pkg data-key="signature" data-label="SIGNATURE (سیگنچر)" data-price="65000000" aria-pressed="false">
+              <button type="button" class="opt-card" data-wed-pkg data-key="signature" data-label="SIGNATURE (سیگنچر)" data-price="65000000" data-max="2" aria-pressed="false">
                 <span class="opt-name">SIGNATURE (سیگنچر)</span>
-                <span class="opt-price">۶۵٬۰۰۰٬۰۰۰ تومان</span>
+                <span class="opt-price">۶۵٬۰۰۰٬۰۰۰ تومان · ۲ نوازنده زنده</span>
               </button>
-              <button type="button" class="opt-card" data-wed-pkg data-key="premium" data-label="PREMIUM (پریمیوم)" data-price="75000000" aria-pressed="false">
+              <button type="button" class="opt-card" data-wed-pkg data-key="premium" data-label="PREMIUM (پریمیوم)" data-price="75000000" data-max="3" aria-pressed="false">
                 <span class="opt-name">PREMIUM (پریمیوم)</span>
-                <span class="opt-price">۷۵٬۰۰۰٬۰۰۰ تومان</span>
+                <span class="opt-price">۷۵٬۰۰۰٬۰۰۰ تومان · ۳ نوازنده زنده</span>
               </button>
-              <button type="button" class="opt-card" data-wed-pkg data-key="elite" data-label="ELITE (الیت)" data-price="85000000" aria-pressed="false">
+              <button type="button" class="opt-card" data-wed-pkg data-key="elite" data-label="ELITE (الیت)" data-price="85000000" data-max="4" aria-pressed="false">
                 <span class="opt-name">ELITE (الیت)</span>
-                <span class="opt-price">۸۵٬۰۰۰٬۰۰۰ تومان</span>
+                <span class="opt-price">۸۵٬۰۰۰٬۰۰۰ تومان · ۴ نوازنده زنده</span>
               </button>
             </div>
           </div>
@@ -795,7 +795,7 @@
 
           <div class="bday-group">
             <div class="inst-head">
-              <span class="glabel" id="wedInstLabel">۳ — انتخاب نوازنده (اختیاری)</span>
+              <span class="glabel" id="wedInstLabel">۳ — انتخاب نوازنده‌های پکیج</span>
               <span class="inst-count" id="wedInstCount"></span>
             </div>
             <div class="chips" id="wedInstChips" role="group" aria-labelledby="wedInstLabel">
@@ -803,9 +803,8 @@
               <button type="button" class="chip" data-wed-inst="ساکسیفون" aria-pressed="false">ساکسیفون</button>
               <button type="button" class="chip" data-wed-inst="درام" aria-pressed="false">درام</button>
               <button type="button" class="chip" data-wed-inst="نی انبان" aria-pressed="false">نی انبان</button>
-              <button type="button" class="chip" data-wed-inst="پرکاشن" aria-pressed="false">پرکاشن</button>
             </div>
-            <p class="inst-hint">هر نوازنده ۱۰٬۰۰۰٬۰۰۰ تومان به قیمت پکیج اضافه می‌کنه؛ می‌تونید چند نوازنده انتخاب کنید یا هیچ‌کدوم رو نزنید.</p>
+            <p class="inst-hint" id="wedInstHint"></p>
           </div>
 
           <div class="bday-summary" aria-live="polite">
@@ -1344,10 +1343,9 @@
         /* ---------- Wedding package + optional add-ons ---------- */
         var WED_LIGHT_PRICE = 15000000;
         var WED_TV_PER_METER = 3000000;
-        var WED_MUSICIAN_PRICE = 10000000;
         var WED_TV_MIN = 1, WED_TV_MAX = 20;
         var wed = {
-          key: "starter", label: "STARTER (استارتر)", price: 45000000,
+          key: "starter", label: "STARTER (استارتر)", price: 45000000, max: 0,
           light: false, tv: false, meters: 3, musicians: []
         };
         var wedSumPkgLabel = document.getElementById("wedSumPkgLabel");
@@ -1358,6 +1356,8 @@
         var wedSumInstLabel = document.getElementById("wedSumInstLabel");
         var wedSumInstVal = document.getElementById("wedSumInstVal");
         var wedInstCount = document.getElementById("wedInstCount");
+        var wedInstHint = document.getElementById("wedInstHint");
+        var wedChips = Array.prototype.slice.call(document.querySelectorAll("#wedInstChips .chip"));
         var wedTotalEl = document.getElementById("wedTotal");
         var wedLightToggle = document.getElementById("wedLightToggle");
         var wedTvToggle = document.getElementById("wedTvToggle");
@@ -1368,7 +1368,7 @@
         var wedTvPlus = document.getElementById("wedTvPlus");
 
         function wedTvPrice() { return wed.tv ? wed.meters * WED_TV_PER_METER : 0; }
-        function wedTotal() { return wed.price + (wed.light ? WED_LIGHT_PRICE : 0) + wedTvPrice() + wed.musicians.length * WED_MUSICIAN_PRICE; }
+        function wedTotal() { return wed.price + (wed.light ? WED_LIGHT_PRICE : 0) + wedTvPrice(); }
 
         function refreshWed() {
           wedSumPkgLabel.textContent = "پکیج " + wed.label;
@@ -1383,13 +1383,24 @@
           }
           if (wed.musicians.length) {
             wedSumInstLabel.textContent = "نوازنده زنده — " + wed.musicians.join("، ");
-            wedSumInstVal.textContent = fmt(wed.musicians.length * WED_MUSICIAN_PRICE) + " تومان";
-            wedInstCount.textContent = faNum(wed.musicians.length) + " نوازنده انتخاب شده";
+            wedSumInstVal.textContent = "شامل قیمت پکیج";
           } else {
             wedSumInstLabel.textContent = "نوازنده زنده";
-            wedSumInstVal.textContent = "بدون نوازنده";
-            wedInstCount.textContent = "";
+            wedSumInstVal.textContent = wed.max === 0 ? "در این پکیج نیست" : "بدون نوازنده";
           }
+          if (wed.max === 0) {
+            wedInstCount.textContent = "این پکیج نوازنده زنده نداره";
+            wedInstHint.textContent = "پکیج استارتر نوازنده زنده نداره؛ برای انتخاب نوازنده، یکی از پکیج‌های پلاس به بالا رو انتخاب کنید. پرکاشن به‌صورت ثابت جزو همه پکیج‌هاست.";
+          } else {
+            wedInstCount.textContent = faNum(wed.musicians.length) + " از " + faNum(wed.max) + " نوازنده انتخاب شده";
+            wedInstHint.textContent = "پکیج " + wed.label + " شامل " + faNum(wed.max) + " نوازنده زنده به انتخاب شماست؛ نوازنده‌ها جزو قیمت پکیج‌ان و هزینه اضافه ندارن. پرکاشن هم به‌صورت ثابت جزو همه پکیج‌هاست و جدا انتخاب نمی‌شه.";
+          }
+          wedChips.forEach(function (chip) {
+            var name = chip.getAttribute("data-wed-inst");
+            var selected = wed.musicians.indexOf(name) !== -1;
+            chip.setAttribute("aria-pressed", selected ? "true" : "false");
+            chip.disabled = !selected && wed.musicians.length >= wed.max;
+          });
           wedTotalEl.textContent = fmt(wedTotal());
           wedLightToggle.setAttribute("aria-pressed", wed.light ? "true" : "false");
           wedLightToggle.textContent = wed.light ? "افزوده شد ✓" : "افزودن";
@@ -1407,6 +1418,9 @@
             wed.key = btn.getAttribute("data-key");
             wed.label = btn.getAttribute("data-label");
             wed.price = parseInt(btn.getAttribute("data-price"), 10);
+            wed.max = parseInt(btn.getAttribute("data-max"), 10) || 0;
+            /* Trim any musicians beyond the new package's cap */
+            if (wed.musicians.length > wed.max) wed.musicians.length = wed.max;
             Array.prototype.slice.call(document.querySelectorAll("[data-wed-pkg]")).forEach(function (b) {
               b.setAttribute("aria-pressed", b === btn ? "true" : "false");
             });
@@ -1418,16 +1432,15 @@
         wedTvMinus.addEventListener("click", function () { if (wed.meters > WED_TV_MIN) wed.meters--; refreshWed(); });
         wedTvPlus.addEventListener("click", function () { if (wed.meters < WED_TV_MAX) wed.meters++; refreshWed(); });
 
-        Array.prototype.slice.call(document.querySelectorAll("#wedInstChips .chip")).forEach(function (chip) {
+        wedChips.forEach(function (chip) {
           chip.addEventListener("click", function () {
             var name = chip.getAttribute("data-wed-inst");
             var i = wed.musicians.indexOf(name);
             if (i !== -1) {
               wed.musicians.splice(i, 1);
-              chip.setAttribute("aria-pressed", "false");
             } else {
+              if (wed.musicians.length >= wed.max) return;
               wed.musicians.push(name);
-              chip.setAttribute("aria-pressed", "true");
             }
             refreshWed();
           });
@@ -1439,7 +1452,8 @@
           lines.push("پکیج عروسی: " + wed.label + " — " + fmt(wed.price) + " تومان");
           lines.push("نورپردازی VIP: " + (wed.light ? fmt(WED_LIGHT_PRICE) + " تومان" : "ندارد"));
           lines.push("تی‌وی وال: " + (wed.tv ? faNum(wed.meters) + " متر — " + fmt(wedTvPrice()) + " تومان" : "ندارد"));
-          lines.push("نوازنده زنده: " + (wed.musicians.length ? wed.musicians.join("، ") + " — " + fmt(wed.musicians.length * WED_MUSICIAN_PRICE) + " تومان" : "ندارد"));
+          lines.push("نوازنده زنده: " + (wed.musicians.length ? wed.musicians.join("، ") + " (شامل پکیج)" : "ندارد"));
+          lines.push("پرکاشن: ثابت، جزو پکیج");
           lines.push("قیمت نهایی پکیج: " + fmt(wedTotal()) + " تومان");
           return lines;
         };
