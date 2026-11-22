@@ -730,8 +730,8 @@
 
         <div class="wed-box">
           <div class="wed-box-head">
-            <h3>افزونه‌های اختیاری</h3>
-            <p>اول پکیج‌تون رو انتخاب کنید، بعد هر افزونه‌ای که خواستید بهش اضافه کنید؛ قیمت نهایی همون لحظه به‌روز می‌شه.</p>
+            <h3>انتخاب پکیج، افزونه و نوازنده</h3>
+            <p>پکیج‌تون رو انتخاب کنید و هر افزونه و نوازنده‌ای که خواستید بهش اضافه کنید؛ قیمت نهایی همون لحظه به‌روز می‌شه.</p>
           </div>
 
           <div class="bday-group">
@@ -793,18 +793,31 @@
             </div>
           </div>
 
+          <div class="bday-group">
+            <div class="inst-head">
+              <span class="glabel" id="wedInstLabel">۳ — انتخاب نوازنده (اختیاری)</span>
+              <span class="inst-count" id="wedInstCount"></span>
+            </div>
+            <div class="chips" id="wedInstChips" role="group" aria-labelledby="wedInstLabel">
+              <button type="button" class="chip" data-wed-inst="ویالون" aria-pressed="false">ویالون</button>
+              <button type="button" class="chip" data-wed-inst="ساکسیفون" aria-pressed="false">ساکسیفون</button>
+              <button type="button" class="chip" data-wed-inst="درام" aria-pressed="false">درام</button>
+              <button type="button" class="chip" data-wed-inst="نی انبان" aria-pressed="false">نی انبان</button>
+              <button type="button" class="chip" data-wed-inst="پرکاشن" aria-pressed="false">پرکاشن</button>
+            </div>
+            <p class="inst-hint">هر نوازنده ۱۰٬۰۰۰٬۰۰۰ تومان به قیمت پکیج اضافه می‌کنه؛ می‌تونید چند نوازنده انتخاب کنید یا هیچ‌کدوم رو نزنید.</p>
+          </div>
+
           <div class="bday-summary" aria-live="polite">
             <div class="sum-row"><span id="wedSumPkgLabel">پکیج STARTER (استارتر)</span><span class="sv" id="wedSumPkgVal">۴۵٬۰۰۰٬۰۰۰ تومان</span></div>
             <div class="sum-row"><span>نورپردازی VIP</span><span class="sv" id="wedSumLightVal">افزوده نشده</span></div>
             <div class="sum-row"><span id="wedSumTvLabel">تی‌وی وال</span><span class="sv" id="wedSumTvVal">افزوده نشده</span></div>
+            <div class="sum-row"><span id="wedSumInstLabel">نوازنده زنده</span><span class="sv" id="wedSumInstVal">بدون نوازنده</span></div>
             <div class="sum-row total"><span class="sl">قیمت نهایی پکیج عروسی</span><span class="sv"><span id="wedTotal">۴۵٬۰۰۰٬۰۰۰</span> <small>تومان</small></span></div>
           </div>
 
-          <button type="button" class="btn-wa" id="wedWa">
-            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-            ثبت درخواست این پکیج در واتساپ
-          </button>
-          <p class="req-note">با زدن دکمه، واتساپ باز می‌شه و جزئیات پکیج و افزونه‌هایی که انتخاب کردید آماده‌ست؛ فقط کافیه ارسالش کنید.</p>
+          <a class="btn-wa" href="#request" style="text-decoration:none;">ادامه و ثبت درخواست</a>
+          <p class="req-note">انتخاب‌هاتون همین‌جا کامل می‌شه؛ پایین صفحه فقط مشخصات و تاریخ مراسم رو بنویسید تا همه‌ش با هم در واتساپ ارسال بشه.</p>
         </div>
 
         <p class="pkg-note"><strong>سیستم صوت کامل VIP در همه پکیج‌ها شامل است</strong> و نیازی به تهیه جداگانه ندارد.</p>
@@ -905,7 +918,7 @@
       <section id="request">
         <div class="sec-head">
           <h2>درخواست قرارداد</h2>
-          <p>فرم رو پر کنید و با یک لمس در واتساپ بفرستید؛ درخواست‌تون مستقیم به دست ما می‌رسه.</p>
+          <p>پکیج، افزونه و نوازنده‌ها رو از بالای صفحه انتخاب کردید؛ اینجا فقط مشخصات و تاریخ مراسم رو بنویسید تا همه‌ش با هم در واتساپ ارسال بشه.</p>
           <div class="rule"></div>
         </div>
 
@@ -957,36 +970,6 @@
                 <label for="fVenue">تالار / محل مراسم</label>
                 <input id="fVenue" name="venue" type="text" placeholder="نام تالار یا شهر و محل مراسم" />
               </div>
-              <div class="field">
-                <label for="fPkg">انتخاب پکیج <span class="req-star">*</span></label>
-                <select id="fPkg" name="package">
-                  <option value="">انتخاب کنید</option>
-                  <option value="starter">STARTER (استارتر) — ۴۵٬۰۰۰٬۰۰۰ تومان</option>
-                  <option value="plus">PLUS (پلاس) — ۵۵٬۰۰۰٬۰۰۰ تومان</option>
-                  <option value="signature">SIGNATURE (سیگنچر) — ۶۵٬۰۰۰٬۰۰۰ تومان</option>
-                  <option value="premium">PREMIUM (پریمیوم) — ۷۵٬۰۰۰٬۰۰۰ تومان</option>
-                  <option value="elite">ELITE (الیت) — ۸۵٬۰۰۰٬۰۰۰ تومان</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="price-box" id="priceBox" aria-live="polite">
-              <span class="plabel">قیمت کلی پکیج</span>
-              <span class="pvalue"><span id="priceVal"></span> <small>تومان</small></span>
-            </div>
-
-            <div class="field">
-              <div class="inst-head">
-                <label id="instLabel">انتخاب ساز (نوازنده زنده)</label>
-                <span class="inst-count" id="instCount"></span>
-              </div>
-              <div class="chips" id="instChips" role="group" aria-labelledby="instLabel">
-                <button type="button" class="chip" data-inst="ویالون" aria-pressed="false" disabled>ویالون</button>
-                <button type="button" class="chip" data-inst="ساکسیفون" aria-pressed="false" disabled>ساکسیفون</button>
-                <button type="button" class="chip" data-inst="درام" aria-pressed="false" disabled>درام</button>
-                <button type="button" class="chip" data-inst="نی انبان" aria-pressed="false" disabled>نی انبان</button>
-              </div>
-              <p class="inst-hint" id="instHint">اول پکیج رو انتخاب کنید تا سازها فعال بشن.</p>
             </div>
 
             <div class="field">
@@ -1051,13 +1034,6 @@
 
     <script>
       (function () {
-        var PACKAGES = {
-          starter:   { label: "STARTER (استارتر)",   price: "۴۵٬۰۰۰٬۰۰۰", max: 0 },
-          plus:      { label: "PLUS (پلاس)",         price: "۵۵٬۰۰۰٬۰۰۰", max: 1 },
-          signature: { label: "SIGNATURE (سیگنچر)",  price: "۶۵٬۰۰۰٬۰۰۰", max: 2 },
-          premium:   { label: "PREMIUM (پریمیوم)",   price: "۷۵٬۰۰۰٬۰۰۰", max: 3 },
-          elite:     { label: "ELITE (الیت)",        price: "۸۵٬۰۰۰٬۰۰۰", max: 4 }
-        };
         var FA_DIGITS = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
         function faNum(n) {
           return String(n).replace(/\d/g, function (d) { return FA_DIGITS[+d]; });
@@ -1068,67 +1044,8 @@
         var phoneEl = document.getElementById("fPhone");
         var typeEl = document.getElementById("fType");
         var venueEl = document.getElementById("fVenue");
-        var pkgEl = document.getElementById("fPkg");
         var descEl = document.getElementById("fDesc");
-        var priceBox = document.getElementById("priceBox");
-        var priceVal = document.getElementById("priceVal");
-        var instCount = document.getElementById("instCount");
-        var instHint = document.getElementById("instHint");
         var errBox = document.getElementById("formErr");
-        var chips = Array.prototype.slice.call(document.querySelectorAll("#instChips .chip"));
-        var selected = [];
-
-        function currentPkg() { return PACKAGES[pkgEl.value] || null; }
-
-        function refreshInst() {
-          var pkg = currentPkg();
-          var max = pkg ? pkg.max : 0;
-          if (selected.length > max) selected = selected.slice(0, max);
-          chips.forEach(function (chip) {
-            var name = chip.getAttribute("data-inst");
-            var isSel = selected.indexOf(name) !== -1;
-            chip.setAttribute("aria-pressed", isSel ? "true" : "false");
-            chip.disabled = !pkg || max === 0 || (!isSel && selected.length >= max);
-          });
-          if (!pkg) {
-            instCount.textContent = "";
-            instHint.textContent = "اول پکیج رو انتخاب کنید تا سازها فعال بشن.";
-          } else if (max === 0) {
-            instCount.textContent = "";
-            instHint.textContent = "پکیج STARTER نوازنده زنده نداره؛ دی‌جی، سیستم صوت کامل VIP و پرکاشن شاملشه.";
-          } else {
-            instCount.textContent = faNum(selected.length) + " از " + faNum(max) + " ساز انتخاب شده";
-            instHint.textContent = selected.length >= max
-              ? "به سقف ساز این پکیج رسیدید؛ برای ساز بیشتر، پکیج بالاتر رو انتخاب کنید."
-              : "تا " + faNum(max) + " ساز می‌تونید انتخاب کنید؛ انتخاب ساز قیمت کلی پکیج رو تغییر نمی‌ده.";
-          }
-        }
-
-        chips.forEach(function (chip) {
-          chip.addEventListener("click", function () {
-            var name = chip.getAttribute("data-inst");
-            var i = selected.indexOf(name);
-            if (i !== -1) {
-              selected.splice(i, 1);
-            } else {
-              var pkg = currentPkg();
-              if (pkg && selected.length < pkg.max) selected.push(name);
-            }
-            refreshInst();
-          });
-        });
-
-        pkgEl.addEventListener("change", function () {
-          var pkg = currentPkg();
-          if (pkg) {
-            priceVal.textContent = pkg.price;
-            priceBox.classList.add("show");
-            pkgEl.classList.remove("invalid");
-          } else {
-            priceBox.classList.remove("show");
-          }
-          refreshInst();
-        });
 
         [nameEl, phoneEl].forEach(function (el) {
           el.addEventListener("input", function () { el.classList.remove("invalid"); });
@@ -1139,8 +1056,6 @@
           var missing = [];
           if (!nameEl.value.trim()) { missing.push("نام"); nameEl.classList.add("invalid"); }
           if (!phoneEl.value.trim()) { missing.push("شماره تماس"); phoneEl.classList.add("invalid"); }
-          var pkg = currentPkg();
-          if (!pkg) { missing.push("پکیج"); pkgEl.classList.add("invalid"); }
           if (missing.length) {
             errBox.textContent = "برای ارسال درخواست، این موارد رو کامل کنید: " + missing.join("، ");
             errBox.classList.add("show");
@@ -1157,8 +1072,10 @@
           if (typeEl.value) lines.push("نوع مراسم: " + typeEl.value);
           if (selectedDate) lines.push("تاریخ مراسم: " + formatJalali(selectedDate));
           if (venueEl.value.trim()) lines.push("تالار/محل: " + venueEl.value.trim());
-          lines.push("پکیج: " + pkg.label + " — " + pkg.price + " تومان");
-          if (selected.length) lines.push("سازهای انتخابی: " + selected.join("، "));
+          if (typeof window.getWeddingSelection === "function") {
+            lines.push("--------------------------");
+            lines = lines.concat(window.getWeddingSelection());
+          }
           if (descEl.value.trim()) lines.push("توضیحات: " + descEl.value.trim());
 
           var url = "https://wa.me/989113418728?text=" + encodeURIComponent(lines.join("\n"));
@@ -1294,8 +1211,6 @@
           renderCal();
         });
 
-        refreshInst();
-
         /* ---------- Soft reveal on scroll ---------- */
         var rvEls = document.querySelectorAll(".rv");
         if ("IntersectionObserver" in window) {
@@ -1429,16 +1344,20 @@
         /* ---------- Wedding package + optional add-ons ---------- */
         var WED_LIGHT_PRICE = 15000000;
         var WED_TV_PER_METER = 3000000;
+        var WED_MUSICIAN_PRICE = 10000000;
         var WED_TV_MIN = 1, WED_TV_MAX = 20;
         var wed = {
           key: "starter", label: "STARTER (استارتر)", price: 45000000,
-          light: false, tv: false, meters: 3
+          light: false, tv: false, meters: 3, musicians: []
         };
         var wedSumPkgLabel = document.getElementById("wedSumPkgLabel");
         var wedSumPkgVal = document.getElementById("wedSumPkgVal");
         var wedSumLightVal = document.getElementById("wedSumLightVal");
         var wedSumTvLabel = document.getElementById("wedSumTvLabel");
         var wedSumTvVal = document.getElementById("wedSumTvVal");
+        var wedSumInstLabel = document.getElementById("wedSumInstLabel");
+        var wedSumInstVal = document.getElementById("wedSumInstVal");
+        var wedInstCount = document.getElementById("wedInstCount");
         var wedTotalEl = document.getElementById("wedTotal");
         var wedLightToggle = document.getElementById("wedLightToggle");
         var wedTvToggle = document.getElementById("wedTvToggle");
@@ -1449,7 +1368,7 @@
         var wedTvPlus = document.getElementById("wedTvPlus");
 
         function wedTvPrice() { return wed.tv ? wed.meters * WED_TV_PER_METER : 0; }
-        function wedTotal() { return wed.price + (wed.light ? WED_LIGHT_PRICE : 0) + wedTvPrice(); }
+        function wedTotal() { return wed.price + (wed.light ? WED_LIGHT_PRICE : 0) + wedTvPrice() + wed.musicians.length * WED_MUSICIAN_PRICE; }
 
         function refreshWed() {
           wedSumPkgLabel.textContent = "پکیج " + wed.label;
@@ -1461,6 +1380,15 @@
           } else {
             wedSumTvLabel.textContent = "تی‌وی وال";
             wedSumTvVal.textContent = "افزوده نشده";
+          }
+          if (wed.musicians.length) {
+            wedSumInstLabel.textContent = "نوازنده زنده — " + wed.musicians.join("، ");
+            wedSumInstVal.textContent = fmt(wed.musicians.length * WED_MUSICIAN_PRICE) + " تومان";
+            wedInstCount.textContent = faNum(wed.musicians.length) + " نوازنده انتخاب شده";
+          } else {
+            wedSumInstLabel.textContent = "نوازنده زنده";
+            wedSumInstVal.textContent = "بدون نوازنده";
+            wedInstCount.textContent = "";
           }
           wedTotalEl.textContent = fmt(wedTotal());
           wedLightToggle.setAttribute("aria-pressed", wed.light ? "true" : "false");
@@ -1490,17 +1418,31 @@
         wedTvMinus.addEventListener("click", function () { if (wed.meters > WED_TV_MIN) wed.meters--; refreshWed(); });
         wedTvPlus.addEventListener("click", function () { if (wed.meters < WED_TV_MAX) wed.meters++; refreshWed(); });
 
-        document.getElementById("wedWa").addEventListener("click", function () {
+        Array.prototype.slice.call(document.querySelectorAll("#wedInstChips .chip")).forEach(function (chip) {
+          chip.addEventListener("click", function () {
+            var name = chip.getAttribute("data-wed-inst");
+            var i = wed.musicians.indexOf(name);
+            if (i !== -1) {
+              wed.musicians.splice(i, 1);
+              chip.setAttribute("aria-pressed", "false");
+            } else {
+              wed.musicians.push(name);
+              chip.setAttribute("aria-pressed", "true");
+            }
+            refreshWed();
+          });
+        });
+
+        /* The contract-request form below attaches these selections to its WhatsApp message */
+        window.getWeddingSelection = function () {
           var lines = [];
-          lines.push("درخواست پکیج عروسی DJ AMIX");
-          lines.push("--------------------------");
-          lines.push("پکیج: " + wed.label + " — " + fmt(wed.price) + " تومان");
+          lines.push("پکیج عروسی: " + wed.label + " — " + fmt(wed.price) + " تومان");
           lines.push("نورپردازی VIP: " + (wed.light ? fmt(WED_LIGHT_PRICE) + " تومان" : "ندارد"));
           lines.push("تی‌وی وال: " + (wed.tv ? faNum(wed.meters) + " متر — " + fmt(wedTvPrice()) + " تومان" : "ندارد"));
-          lines.push("قیمت نهایی: " + fmt(wedTotal()) + " تومان");
-          var url = "https://wa.me/989113418728?text=" + encodeURIComponent(lines.join("\n"));
-          window.open(url, "_blank");
-        });
+          lines.push("نوازنده زنده: " + (wed.musicians.length ? wed.musicians.join("، ") + " — " + fmt(wed.musicians.length * WED_MUSICIAN_PRICE) + " تومان" : "ندارد"));
+          lines.push("قیمت نهایی پکیج: " + fmt(wedTotal()) + " تومان");
+          return lines;
+        };
 
         refreshWed();
         refreshBday();
