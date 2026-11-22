@@ -547,9 +547,7 @@
       .cal-day.today { border-color: rgba(139, 61, 255, 0.55); color: #c99aff; }
       .cal-day.sel { background: var(--uv); border-color: var(--uv); color: #fff; }
       .cal-day:disabled { color: #5b5170; cursor: default; }
-      .cal-day.booked { color: #ff5d5d !important; text-decoration: line-through; background: rgba(255, 93, 93, 0.08); }
-      .cal-legend { margin: 10px 2px 0; font-size: 12.5px; color: var(--muted); display: flex; align-items: center; gap: 6px; }
-      .cal-legend-dot { width: 10px; height: 10px; border-radius: 50%; background: #ff5d5d; display: inline-block; flex: none; }
+      .cal-msg { margin: 10px 2px 0; font-size: 13.5px; font-weight: 700; color: #ff5d5d; }
       .cal-blank { min-height: 42px; }
 
       /* ---------- Instagram section ---------- */
@@ -960,7 +958,7 @@
                     <span>ش</span><span>ی</span><span>د</span><span>س</span><span>چ</span><span>پ</span><span>ج</span>
                   </div>
                   <div class="cal-grid" id="calGrid"></div>
-                  <p class="cal-legend"><span class="cal-legend-dot"></span> روزهای قرمز رزرو شده‌اند و قابل انتخاب نیستند</p>
+                  <p class="cal-msg" id="calMsg" hidden></p>
                 </div>
               </div>
               <div class="field">
@@ -1160,9 +1158,12 @@
         var calTitle = document.getElementById("calTitle");
         var calGrid = document.getElementById("calGrid");
 
-        /* Booked dates (Jalali [y, m, d]) — kept in sync with the DJ app contracts; a booked day is shown red + struck through and cannot be picked. */
+        /* Booked dates (Jalali [y, m, d]) — kept in sync with the DJ app contracts. Booked days look like normal days; tapping one shows "این تاریخ رزرو شده" and it cannot be picked. */
         var BOOKED = { "1405-9-5": 1, "1405-9-12": 1, "1405-9-13": 1, "1405-9-24": 1, "1405-9-29": 1, "1405-10-3": 1, "1405-11-2": 1, "1406-6-16": 1 };
         function isBooked(cur) { return !!BOOKED[cur[0] + "-" + cur[1] + "-" + cur[2]]; }
+        var calMsg = document.getElementById("calMsg");
+        function showCalMsg(text) { if (calMsg) { calMsg.textContent = text; calMsg.hidden = false; } }
+        function hideCalMsg() { if (calMsg) calMsg.hidden = true; }
 
         function renderCal() {
           calTitle.textContent = J_MONTHS[viewM - 1] + " " + faNum(viewY);
@@ -1182,10 +1183,11 @@
               btn.textContent = faNum(day);
               var cur = [viewY, viewM, day];
               if (cmpJalali(cur, todayJ) < 0) btn.disabled = true;
-              if (isBooked(cur)) { btn.disabled = true; btn.classList.add("booked"); btn.title = "رزرو شده"; }
               if (cmpJalali(cur, todayJ) === 0) btn.classList.add("today");
               if (selectedDate && cmpJalali(cur, selectedDate) === 0) btn.classList.add("sel");
               btn.addEventListener("click", function () {
+                if (isBooked([viewY, viewM, day])) { showCalMsg("این تاریخ رزرو شده"); return; }
+                hideCalMsg();
                 selectedDate = [viewY, viewM, day];
                 dateBtnText.textContent = formatJalali(selectedDate);
                 dateBtnText.classList.remove("ph");
