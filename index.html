@@ -932,7 +932,7 @@
                 <label for="fPhone">شماره تماس <span class="req-star">*</span></label>
                 <input id="fPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" style="text-align:left" placeholder="0912 345 6789" />
               </div>
-              <div class="field">
+              <div class="field" id="fTypeField" hidden>
                 <label for="fType">نوع مراسم</label>
                 <select id="fType" name="type">
                   <option value="">انتخاب کنید</option>
@@ -1067,7 +1067,11 @@
           lines.push("--------------------------");
           lines.push("نام: " + nameEl.value.trim());
           lines.push("شماره تماس: " + phoneEl.value.trim());
-          if (typeEl.value) lines.push("نوع مراسم: " + typeEl.value);
+          /* Wedding panel: event type is always "عروسی" by default, no selection.
+             Birthday panel: use the selected type from the 4-option selector. */
+          var isWeddingPanel = !document.getElementById("panelWedding").hidden;
+          if (isWeddingPanel) lines.push("نوع مراسم: عروسی");
+          else if (typeEl.value) lines.push("نوع مراسم: " + typeEl.value);
           if (selectedDate) lines.push("تاریخ مراسم: " + formatJalali(selectedDate));
           if (venueEl.value.trim()) lines.push("تالار/محل: " + venueEl.value.trim());
           if (typeof window.getWeddingSelection === "function") {
@@ -1241,6 +1245,10 @@
           tabB.setAttribute("aria-selected", isW ? "false" : "true");
           panelW.hidden = !isW;
           panelB.hidden = isW;
+          /* Wedding has no event-type field (it is wedding by default);
+             the birthday panel shows the 4-option selector instead. */
+          var typeField = document.getElementById("fTypeField");
+          if (typeField) typeField.hidden = isW;
         }
         tabW.addEventListener("click", function () { showPanel("wedding"); });
         tabB.addEventListener("click", function () { showPanel("birthday"); });
