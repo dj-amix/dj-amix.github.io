@@ -696,13 +696,13 @@
       <section id="packages">
         <div class="sec-head">
           <h2>پکیج‌های اجرا</h2>
-          <p>برای عروسی، پنج پکیج آماده داریم؛ برای تولد و مهمونی، پکیج رو خودتون می‌سازید.</p>
+          <p>برای عروسی، پنج پکیج آماده داریم؛ برای عقد و تولد، پکیج رو خودتون می‌سازید.</p>
           <div class="rule"></div>
         </div>
 
         <div class="panel-tabs" role="tablist" aria-label="نوع مراسم">
           <button type="button" class="panel-tab" id="tabWedding" role="tab" aria-selected="true" aria-controls="panelWedding">مراسم عروسی</button>
-          <button type="button" class="panel-tab" id="tabBirthday" role="tab" aria-selected="false" aria-controls="panelBirthday">تولد و مهمونی</button>
+          <button type="button" class="panel-tab" id="tabBirthday" role="tab" aria-selected="false" aria-controls="panelBirthday">عقد و تولد</button>
         </div>
 
         <div id="panelWedding" role="tabpanel" aria-labelledby="tabWedding">
@@ -1428,7 +1428,7 @@
 
         window.getBirthdaySelection = function () {
           var lines = [];
-          lines.push("پکیج تولد و مهمونی (ساخته‌شده):");
+          lines.push("پکیج عقد و تولد (ساخته‌شده):");
           lines.push("پایه دی‌جی: " + fmt(BASE) + " تومان");
           lines.push("سیستم صوت: " + GROUP_LABELS.sound[state.sound.key] + " — " + fmt(state.sound.price) + " تومان");
           lines.push("نورپردازی: " + GROUP_LABELS.light[state.light.key] + " — " + fmt(state.light.price) + " تومان");
